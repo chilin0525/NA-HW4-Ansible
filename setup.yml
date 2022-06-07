@@ -1,0 +1,14 @@
+---
+- name: setup ldap client workstation
+  hosts: localhost
+  become_user: root
+ 
+  vars_files:
+  - roles/vars/main.yml
+
+  tasks:
+    - name: include main task
+      include: roles/tasks/main.yml
+  
+  handlers:
+    - include: roles/handlers/main.yml 

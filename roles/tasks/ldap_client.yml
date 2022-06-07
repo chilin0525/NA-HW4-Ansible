@@ -1,0 +1,8 @@
+---
+- name: install ldap client
+  apt:
+    pkg:
+      - libnss-ldap
+      - ldap-utils
+      - libpam-ldap
+

@@ -1,0 +1,11 @@
+---
+- name: install nameserver
+  include: nameserver.yml
+- name: set up nameserver and restart
+  include: nameserver_setup.yml
+- name: install ldap client package
+  include: ldap_client.yml
+- name: copy file for ldap client
+  include: ldap_client_setup.yml
+- name: install sudo-ldap 
+  include: ldap_sudo.yml

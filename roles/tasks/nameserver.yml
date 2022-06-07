@@ -1,0 +1,5 @@
+---
+- name: install nameserver manager package
+  apt:
+    pkg:
+      - resolvconf

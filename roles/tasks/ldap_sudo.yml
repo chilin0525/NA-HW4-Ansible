@@ -1,0 +1,15 @@
+- name: set env for install sudo-ldap
+  shell: export SUDO_FORCE_REMOVE=yes
+
+- name: install sudo-ldap
+  apt:
+    pkg:
+      - sudo-ldap
+
+- name: sudo-ldap setup env variable
+  shell: export SUDO_FORCE_REMOVE=no
+
+- name: cp sudo-ldap.conf
+  copy:
+    src: roles/files/sudo-ldap.conf
+    dest: /etc/sudo-ldap.conf

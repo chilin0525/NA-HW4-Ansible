@@ -1,0 +1,25 @@
+- name: restart resolvconf
+  ansible.builtin.systemd:
+    name: resolvconf
+    state: restarted
+  notify: restart systemd-resolved
+ 
+- name: restart systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    state: restarted
+  notify: dig nameserver
+
+- name: dig nameserver
+  shell: 'dig ldap.34.nasa +short'
+  register: nameserver_output
+  notify: decode cacert
+
+- name: decode cacert
+  shell: dig cert.34.nasa TXT +short | tr -d '"' | tr -d '\n' | tr -d ' ' | base64 --decode > /etc/ssl/certs/mycacert.pem
+  notify: print out nameserver ip
+
+- name: print out nameserver ip
+  ansible.builtin.debug:   
+    msg: "The nameserver IP: {{ nameserver_output  }}"
+

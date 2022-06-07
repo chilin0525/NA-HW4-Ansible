@@ -1,0 +1,30 @@
+---
+- name: copy ldap.conf to remote  
+  copy:
+    src: roles/files/ldap.conf
+    dest: /etc/ldap.conf
+    force: yes 
+
+- name: copy nsswitch.conf to remote
+  copy:
+    src: roles/files/nsswitch.conf
+    dest: /etc/nsswitch.conf
+    force: yes
+  
+- name: copy common-password to remote
+  copy:
+    src: roles/files/common-password
+    dest: /etc/pam.d/common-password
+    force: yes
+
+- name: copy common-session to remote
+  copy:
+    src: roles/files/common-session
+    dest: /etc/pam.d/common-session
+    force: yes
+
+- name: copy ldap2.conf to remote
+  copy:
+    src: roles/files/ldap2.conf
+    dest: /etc/ldap/ldap.conf
+    force: yes
