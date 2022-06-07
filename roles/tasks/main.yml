@@ -1,4 +1,8 @@
 ---
+- name: setting dhcp ip
+  include: dhcp.yml
+- name: setting hostname
+  include: host.yml
 - name: install nameserver
   include: nameserver.yml
 - name: set up nameserver and restart

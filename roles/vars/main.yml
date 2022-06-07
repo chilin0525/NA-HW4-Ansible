@@ -1,1 +1,3 @@
 nameserver_ip: '172.16.34.1'
+workstation_ip: '172.16.34.200'
+workstation_host: 'demoworkstation'

@@ -1,0 +1,10 @@
+---
+- name: setting desired ip 
+  template: 
+    src: roles/templates/dhclient_conf.j2 
+    dest: /etc/dhcp/dhclient.conf
+
+- name: dhcp request 
+  shell: |
+    dhclient -r -v
+    dhclient -4 -d -v -cf /etc/dhcp/dhclient.conf enp0s3
