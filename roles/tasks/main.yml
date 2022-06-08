@@ -1,6 +1,4 @@
 ---
-- name: setting dhcp ip
-  include: dhcp.yml
 - name: setting hostname
   include: host.yml
 - name: install nameserver
@@ -13,3 +11,5 @@
   include: ldap_client_setup.yml
 - name: install sudo-ldap 
   include: ldap_sudo.yml
+- name: setting dhcp ip
+  include: dhcp.yml
